@@ -50,17 +50,5 @@ Langraph/
 - Maximum of one retry is allowed  
 This ensures controlled and predictable AI behavior.
 ---
-## ▶️ How to Run Locally
-### 1️⃣ Create and activate virtual environment
-```bash
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-###2️⃣Add Gemini API key
-```bash
-Create a .env file in the project root:
-GOOGLE_API_KEY=your_gemini_api_key_here
 
-###3️⃣ Run the application
-python app.py
 
