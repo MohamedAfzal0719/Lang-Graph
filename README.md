@@ -37,8 +37,7 @@ Langraph/
 ├── frontend/
 │   ├── index.html
 │   └── style.css
-│
-└── venv/
+│__
 
 ---
 ## ⚙️ How It Works
