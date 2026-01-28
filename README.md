@@ -56,7 +56,12 @@ This ensures controlled and predictable AI behavior.
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+
+ 2️⃣Add Gemini API key
+
 Create a .env file in the project root:
 GOOGLE_API_KEY=your_gemini_api_key_here
-Run the application
+
+3️⃣ Run the application
 python app.py
+
