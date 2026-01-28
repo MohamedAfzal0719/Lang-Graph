@@ -22,6 +22,7 @@ The project demonstrates how to combine AI generation with rule-based validation
 - **Environment Management:** Python virtual environment
 ---
 ## 📂 Project Structure
+```text
 Langraph/
 │
 ├── app.py
@@ -38,7 +39,7 @@ Langraph/
 │   ├── index.html
 │   └── style.css
 │__
-
+```
 ---
 ## ⚙️ How It Works
 1. User submits a question from the frontend
