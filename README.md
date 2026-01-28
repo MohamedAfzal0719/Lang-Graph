@@ -23,17 +23,21 @@ The project demonstrates how to combine AI generation with rule-based validation
 ---
 ## 📂 Project Structure
 Langraph/
+│
 ├── app.py
-├── backend/
-│ ├── init.py
-│ ├── graph.py
-│ ├── nodes.py
-│ └── state.py
-├── frontend/
-│ ├── index.html
-│ ├── style.css
-├── .env
 ├── requirements.txt
+├── .env
+│
+├── backend/
+│   ├── __init__.py
+│   ├── graph.py
+│   ├── nodes.py
+│   └── state.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+
 ---
 ## ⚙️ How It Works
 1. User submits a question from the frontend
