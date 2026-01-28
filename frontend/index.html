@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask Questions</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ask</h1>
+            <p class="subtitle">Ask the question you've always wondered about</p>
+        </header>
+
+        <div class="search-section">
+            <form id="askForm">
+                <div class="form-group">
+                    <input type="text" id="questionInput" name="question" placeholder="What would you like to know?" required>
+                    <button type="submit" class="btn-primary">Get Answer</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="result"></div>
+
+        <footer class="footer">
+            <p>Instant answers to your questions</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('askForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const question = document.getElementById('questionInput').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading"><span class="spinner"></span> Finding answer...</div>';
+            
+            try {
+                const formData = new FormData();
+                formData.append('question', question);
+                
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <div class="answer-container">
+                        <div class="question-asked">
+                            <strong>Your question:</strong> ${data.question}
+                        </div>
+                        <div class="answer-box">
+                            <p>${data.answer}</p>
+                        </div>
+                        <div class="answer-meta">
+                            <span class="status" title="Answer validation status">Status: ${data.is_valid ? '✓ Complete' : '○ In Progress'}</span>
+                            <span class="retries" title="Number of attempts">Attempts: ${data.retries}</span>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error-box">
+                    <p class="error">Something went wrong</p>
+                    <p class="error-detail">${error.message}</p>
+                </div>`;
+            }
+        });
+    </script>
+</body>
+</html>
